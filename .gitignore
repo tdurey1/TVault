@@ -82,7 +82,3 @@ lint/intermediates/
 lint/generated/
 lint/outputs/
 lint/tmp/
-
-git rm -r --cached .  
-git add .
-git commit -m 'Removing ignored files'
