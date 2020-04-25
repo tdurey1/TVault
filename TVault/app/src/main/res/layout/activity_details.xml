@@ -24,8 +24,8 @@
 
         <TextView
             android:id="@+id/titleText"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="20dp"
@@ -44,8 +44,8 @@
 
         <TextView
             android:id="@+id/yearText"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="20dp"
@@ -55,37 +55,17 @@
             app:layout_constraintRight_toRightOf="parent"/>
 
         <TextView
-            android:id="@+id/titleYearLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_year_label"
-            app:layout_constraintTop_toBottomOf="@id/yearLabel"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-
-        <TextView
-            android:id="@+id/titleYearText"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="20dp"
-            android:textSize="30sp"
-            app:layout_constraintTop_toTopOf="@id/titleYearLabel"
-            app:layout_constraintLeft_toRightOf="@id/titleYearLabel"
-            app:layout_constraintRight_toRightOf="parent"/>
-
-        <TextView
             android:id="@+id/plotLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/plot_label"
-            app:layout_constraintTop_toBottomOf="@id/titleYearLabel"
+            app:layout_constraintTop_toBottomOf="@id/yearLabel"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
         <TextView
             android:id="@+id/plotText"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="20dp"

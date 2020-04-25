@@ -176,11 +176,9 @@ public class MainActivity extends AppCompatActivity {
 
                             String year = response.getString("Year");
 
-                            String titleYear = title + ", released: " + year;
-
                             String plot = response.getString("Plot");
 
-                            Movie movie = new Movie(title, year, titleYear, plot);
+                            Movie movie = new Movie(title, year, plot);
 
                             if (mMovieDb.addMovie(movie)) {
                                 mMovieAdapter.addMovie(movie);

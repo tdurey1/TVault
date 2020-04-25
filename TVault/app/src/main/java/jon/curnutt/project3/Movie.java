@@ -4,16 +4,14 @@ public class Movie {
 
     private String mMovieName;
     private String mMovieYear;
-    private String mMovieTitleYear;
     private String mMoviePlot;
     private long mUpdateTime;
 
     public Movie() {}
 
-    public Movie(String name, String year, String titleYear, String plot) {
+    public Movie(String name, String year, String plot) {
         mMovieName = name;
         mMovieYear = year;
-        mMovieTitleYear = titleYear;
         mMoviePlot = plot;
         mUpdateTime = System.currentTimeMillis();
     }
@@ -24,6 +22,22 @@ public class Movie {
 
     public void setName(String name) {
         mMovieName = name;
+    }
+
+    public String getYear() {
+        return mMovieYear;
+    }
+
+    public void setYear(String year) {
+        mMovieYear = year;
+    }
+
+    public String getPlot() {
+        return mMoviePlot;
+    }
+
+    public void setPlot(String plot) {
+        mMoviePlot = plot;
     }
 
     public long getUpdateTime() {

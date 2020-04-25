@@ -22,6 +22,7 @@ public class DetailsActivity extends AppCompatActivity {
     private final int REQUEST_CODE_UPDATE_QUESTION = 1;
     private MovieDatabase mMovieDb;
     private String mMovie;
+    private Movie mDetails;
     private TextView mTitleText;
     private TextView mYearText;
     private TextView mTitleYearText;
@@ -42,24 +43,22 @@ public class DetailsActivity extends AppCompatActivity {
 
         mTitleText = findViewById(R.id.titleText);
         mYearText = findViewById(R.id.yearText);
-        mTitleYearText = findViewById(R.id.titleYearText);
         mPlotText = findViewById(R.id.plotText);
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//
-//        // Are there questions to display?
-//        if (mQuestionList.size() == 0) {
-//            updateAppBarTitle();
-//            displayQuestion(false);
-//        } else {
-//            displayQuestion(true);
-//            toggleAnswerVisibility();
-//        }
-//    }
+    @Override
+    protected void onStart() {
+        super.onStart();
 
+        displayDetails();
+    }
+
+    public void displayDetails() {
+        mDetails = mMovieDb.getMovieDetails(mMovie);
+        mTitleText.setText(mDetails.getName());
+        mYearText.setText(mDetails.getYear());
+        mPlotText.setText(mDetails.getPlot());
+    }
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //
@@ -131,9 +130,7 @@ public class DetailsActivity extends AppCompatActivity {
 //            mCurrentQuestionIndex = questionIndex;
 //            updateAppBarTitle();
 //
-//            Question question = mQuestionList.get(mCurrentQuestionIndex);
-//            mQuestionText.setText(question.getText());
-//            mAnswerText.setText(question.getAnswer());
+
 //        }
 //        else {
 //            // No questions yet

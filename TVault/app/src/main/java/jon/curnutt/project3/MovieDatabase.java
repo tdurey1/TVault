@@ -33,6 +33,9 @@ public class MovieDatabase extends SQLiteOpenHelper {
     private static final class MovieTable {
         private static final String TABLE = "movies";
         private static final String COL_TEXT = "text";
+        private static final String COL_YEAR = "year";
+        private static final String COL_TITLE_YEAR = "titleyear";
+        private static final String COL_PLOT = "plot";
         private static final String COL_UPDATE_TIME = "updated";
     }
 
@@ -42,12 +45,17 @@ public class MovieDatabase extends SQLiteOpenHelper {
         // Create movies table
         db.execSQL("create table " + MovieTable.TABLE + " (" +
                 MovieTable.COL_TEXT + " primary key, " +
+                MovieTable.COL_YEAR + ", " +
+                MovieTable.COL_TITLE_YEAR + ", " +
+                MovieTable.COL_PLOT + ", " +
                 MovieTable.COL_UPDATE_TIME + " int)");
 
         // Add an example movie
-        Movie movie = new Movie("Lord of the Rings", "1994", "What is this even", "Dwarves, Elves, Hobbits, and Wizards");
+        Movie movie = new Movie("Lord of the Rings", "1994", "Dwarves, Elves, Hobbits, and Wizards");
         ContentValues values = new ContentValues();
         values.put(MovieTable.COL_TEXT, movie.getName());
+        values.put(MovieTable.COL_YEAR, movie.getYear());
+        values.put(MovieTable.COL_PLOT, movie.getPlot());
         values.put(MovieTable.COL_UPDATE_TIME, movie.getUpdateTime());
         db.insert(MovieTable.TABLE, null, values);
     }
@@ -72,6 +80,7 @@ public class MovieDatabase extends SQLiteOpenHelper {
     }
 
     public List<Movie> getMovies(MovieSortOrder order) {
+
         List<Movie> movies = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -108,6 +117,8 @@ public class MovieDatabase extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(MovieTable.COL_TEXT, movie.getName());
+        values.put(MovieTable.COL_YEAR, movie.getYear());
+        values.put(MovieTable.COL_PLOT, movie.getPlot());
         values.put(MovieTable.COL_UPDATE_TIME, movie.getUpdateTime());
         long id = db.insert(MovieTable.TABLE, null, values);
         return id != -1;
@@ -117,5 +128,23 @@ public class MovieDatabase extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         db.delete(MovieTable.TABLE,
                 MovieTable.COL_TEXT + " = ?", new String[] { movie.getName() });
+    }
+
+    public Movie getMovieDetails(String movieName) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String sql = "select * from " + MovieTable.TABLE +
+                " where " + MovieTable.COL_TEXT + " = ?";
+        Cursor cursor = db.rawQuery(sql, new String[] { movieName });
+
+        Movie movie = new Movie();
+        if (cursor.moveToFirst()) {
+            movie.setName(cursor.getString(0));
+            movie.setYear(cursor.getString(1));
+            movie.setPlot(cursor.getString(3));
+            movie.setUpdateTime(cursor.getInt(4));
+        }
+        cursor.close();
+
+        return movie;
     }
 }
