@@ -9,11 +9,15 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,13 +48,13 @@ public class MainActivity extends AppCompatActivity {
     //private TextView mMoviePlotTextView;
     private String KEY = "b5f9b213";
     private RecyclerView mRecyclerView;
+    private Movie mSelectedMovie;
     private MovieAdapter mMovieAdapter;
     private int mSelectedMoviePosition = RecyclerView.NO_POSITION;
     //private boolean mDarkTheme;
     private SharedPreferences mSharedPrefs;
     private MovieDatabase mMovieDb;
-
-
+    private ActionMode mActionMode = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -218,63 +222,105 @@ public class MainActivity extends AppCompatActivity {
         if(input.length() == 0) {
             Toast.makeText(this, getString(R.string.empty_input_toast), Toast.LENGTH_SHORT).show();
             //mMoviePlotTextView.setText("");
-           // mMovieTitleTextView.setText("");
+            // mMovieTitleTextView.setText("");
         }
         else getDetails(input);
     }
 
-    // if we do anything with long click/press, include this - implements View.OnClickListener, View.OnLongClickListener
-    private class MovieHolder extends RecyclerView.ViewHolder {
+    private class MovieHolder extends RecyclerView.ViewHolder
+            implements View.OnClickListener, View.OnLongClickListener {
 
         private Movie mMovie;
         private TextView mTextView;
 
         public MovieHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.recycler_view_items, parent, false));
-            //itemView.setOnClickListener(this);
+            itemView.setOnClickListener(this);
             mTextView = itemView.findViewById(R.id.movieTextView);
-            //itemView.setOnLongClickListener(this);
+            itemView.setOnLongClickListener(this);
         }
 
         public void bind(Movie movie, int position) {
             mMovie = movie;
             mTextView.setText(movie.getName());
 
-//            if (mSelectedMoviePosition == position) {
-//                // Make selected subject stand out
-//                mTextView.setBackgroundColor(Color.RED);
-//            } else {
-//                // Make the background color dependent on the length of the subject string
-//                int colorIndex = movie.getName().length() % mSubjectColors.length;
-//                mTextView.setBackgroundColor(mSubjectColors[colorIndex]);
-//            }
+            if (mSelectedMoviePosition == position) {
+                mTextView.setBackgroundColor(Color.RED);
+                mTextView.setTextColor(Color.WHITE);
+            } else {
+                // Make the background color dependent on the length of the subject string
+                //mTextView.setBackgroundColor(Color.BLACK);
+            }
         }
 
-//        @Override
-//        public boolean onLongClick(View view) {
-//            if (mActionMode != null) {
-//                return false;
-//            }
-//            mSelectedSubject = mSubject;
-//            mSelectedSubjectPosition = getAdapterPosition();
-//
-//            // Re-bind the selected item
-//            mSubjectAdapter.notifyItemChanged(mSelectedSubjectPosition);
-//
-//            // Show the CAB
-//            mActionMode = SubjectActivity.this.startActionMode(mActionModeCallback);
-//
-//            return true;
-//        }
+        @Override
+        public boolean onLongClick(View view) {
+            Toast.makeText(getApplicationContext(), "howdy", Toast.LENGTH_SHORT).show();
+            if (mActionMode != null) {
+                return false;
+            }
+            mSelectedMovie = mMovie;
+            mSelectedMoviePosition = getAdapterPosition();
 
-//        @Override
-//        public void onClick(View view) {
-//            // Start QuestionActivity, indicating what subject was clicked
-//            Intent intent = new Intent(SubjectActivity.this, QuestionActivity.class);
-//            intent.putExtra(QuestionActivity.EXTRA_SUBJECT, mSubject.getText());
-//            startActivity(intent);
-//        }
+            // Re-bind the selected item
+            mMovieAdapter.notifyItemChanged(mSelectedMoviePosition);
+
+            // Show the CAB
+            mActionMode = MainActivity.this.startActionMode(mActionModeCallback);
+
+            return true;
+        }
+
+        @Override
+        public void onClick(View view) {
+            // Start QuestionActivity, indicating what subject was clicked
+            Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
+            intent.putExtra(DetailsActivity.MOVIE_DETAILS, mMovie.getName());
+            startActivity(intent);
+        }
     }
+
+    private ActionMode.Callback mActionModeCallback = new ActionMode.Callback() {
+
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            // Provide context menu for CAB
+            MenuInflater inflater = mode.getMenuInflater();
+            inflater.inflate(R.menu.delete_menu, menu);
+            return true;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            // Process action item selection
+            switch (item.getItemId()) {
+                case R.id.delete:
+                    // Delete from the database and remove from the RecyclerView
+                    mMovieDb.deleteMovie(mSelectedMovie);
+                    mMovieAdapter.removeMovie(mSelectedMovie);
+
+                    // Close the CAB
+                    mode.finish();
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            mActionMode = null;
+
+            // CAB closing, need to deselect item if not deleted
+            mMovieAdapter.notifyItemChanged(mSelectedMoviePosition);
+            mSelectedMoviePosition = RecyclerView.NO_POSITION;
+        }
+    };
 
     private class MovieAdapter extends RecyclerView.Adapter<MovieHolder> {
 
