@@ -247,9 +247,6 @@ public class MainActivity extends AppCompatActivity {
             if (mSelectedMoviePosition == position) {
                 mTextView.setBackgroundColor(Color.RED);
                 mTextView.setTextColor(Color.WHITE);
-            } else {
-                // Make the background color dependent on the length of the subject string
-                //mTextView.setBackgroundColor(Color.BLACK);
             }
         }
 
@@ -273,7 +270,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-            // Start QuestionActivity, indicating what subject was clicked
             Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
             intent.putExtra(DetailsActivity.MOVIE_DETAILS, mMovie.getName());
             startActivity(intent);
