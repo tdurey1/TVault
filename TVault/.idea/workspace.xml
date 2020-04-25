@@ -11,10 +11,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9901cb46-ad5d-40b0-8833-7d68931880d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jon/curnutt/project3/DetailsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/jon/curnutt/project3/DetailsActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jon/curnutt/project3/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/jon/curnutt/project3/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jon/curnutt/project3/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/jon/curnutt/project3/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/jon/curnutt/project3/MovieDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/jon/curnutt/project3/MovieDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -51,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/jon/curnutt/project3/MovieDatabase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="140" column="44" selection-start-line="140" selection-start-column="44" selection-end-line="140" selection-end-column="44" />
+            <state relative-caret-position="272">
+              <caret line="149" column="1" lean-forward="true" selection-start-line="149" selection-start-column="1" selection-end-line="149" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -107,11 +103,11 @@
           <provider editor-type-id="android-designer2" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="67" column="47" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="47" />
+            <state relative-caret-position="238">
+              <caret line="59" column="38" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
             </state>
           </provider>
           <provider editor-type-id="android-designer2" />
@@ -189,8 +185,8 @@
       <find>stud</find>
       <find>study</find>
       <find>question</find>
-      <find>setName</find>
       <find>mQuestionList</find>
+      <find>setName</find>
     </findStrings>
     <replaceStrings>
       <replace>COL_NAME</replace>
@@ -219,8 +215,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/jon/curnutt/project3/Movie.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jon/curnutt/project3/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/jon/curnutt/project3/DetailsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/jon/curnutt/project3/MovieDatabase.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml" />
       </list>
     </option>
   </component>
@@ -566,14 +562,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="67" column="47" selection-start-line="67" selection-start-column="47" selection-end-line="67" selection-end-column="47" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jon/curnutt/project3/Movie.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -593,13 +581,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/jon/curnutt/project3/MovieDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="140" column="44" selection-start-line="140" selection-start-column="44" selection-end-line="140" selection-end-column="44" />
+        <state relative-caret-position="272">
+          <caret line="149" column="1" lean-forward="true" selection-start-line="149" selection-start-column="1" selection-end-line="149" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_details.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="59" column="38" selection-start-line="59" selection-start-column="38" selection-end-line="59" selection-end-column="38" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
   </component>
 </project>
