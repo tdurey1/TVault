@@ -6,16 +6,31 @@
     android:layout_width="match_parent"
     android:layout_height="95dp"
     card_view:cardCornerRadius="5dp"
-    card_view:cardUseCompatPadding="true">
+    card_view:cardUseCompatPadding="true"
+    android:layout_weight="1">
 
-    <TextView
-        android:id="@+id/movieTextView"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:padding="10dp"
-        android:layout_gravity="center"
-        android:gravity="center" />
+        android:weightSum="10">
+
+        <ImageView
+            android:id="@+id/posterView"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"/>
+
+        <TextView
+            android:id="@+id/movieTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="7"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.cardview.widget.CardView>

@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
+
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -247,17 +250,25 @@ public class MainActivity extends AppCompatActivity {
 
         private Movie mMovie;
         private TextView mTextView;
+        private ImageView mPosterView;
 
         public MovieHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.recycler_view_items, parent, false));
             itemView.setOnClickListener(this);
             mTextView = itemView.findViewById(R.id.movieTextView);
+            mPosterView = itemView.findViewById(R.id.posterView);
             itemView.setOnLongClickListener(this);
         }
 
         public void bind(Movie movie, int position) {
             mMovie = movie;
             mTextView.setText(movie.getTitle());
+
+            // If getPoster().length() < 4, there isn't a link to an image of the poster
+            if (movie.getPoster().length() > 4)
+                Picasso.get().load(movie.getPoster()).into(mPosterView);
+            else
+                mPosterView.setImageResource(R.drawable.no_poster_available);
 
             if (mSelectedMoviePosition == position) {
                 mTextView.setBackgroundColor(Color.RED);
