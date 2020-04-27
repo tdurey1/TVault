@@ -1,7 +1,10 @@
 package jon.curnutt.project3;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -28,9 +31,18 @@ public class DetailsActivity extends AppCompatActivity {
     private TextView mActorsText;
     private TextView mRuntimeText;
     private TextView mReleasedText;
+    private boolean mDarkTheme;
+    private SharedPreferences mSharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        mDarkTheme = mSharedPrefs.getBoolean(SettingsFragment.PREFERENCE_THEME, false);
+        if (mDarkTheme) {
+            setTheme(R.style.DarkTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
