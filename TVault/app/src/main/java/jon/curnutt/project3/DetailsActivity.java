@@ -1,33 +1,32 @@
 package jon.curnutt.project3;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.List;
 
 public class DetailsActivity extends AppCompatActivity {
     public static final String MOVIE_DETAILS = "jon.curnutt.project3.movie";
-    private final int REQUEST_CODE_NEW_QUESTION = 0;
-    private final int REQUEST_CODE_UPDATE_QUESTION = 1;
     private MovieDatabase mMovieDb;
     private String mMovie;
     private Movie mDetails;
     private TextView mTitleText;
     private TextView mYearText;
-    private TextView mTitleYearText;
     private TextView mPlotText;
-    private int mCurrentQuestionIndex;
+    private ImageView mPosterView;
+    private TextView mRatingText;
+    private TextView mGenreText;
+    private TextView mMetascoreText;
+    private TextView mImdbRatingText;
+    private TextView mProductionText;
+    private TextView mWriterText;
+    private TextView mActorsText;
+    private TextView mRuntimeText;
+    private TextView mReleasedText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +43,16 @@ public class DetailsActivity extends AppCompatActivity {
         mTitleText = findViewById(R.id.titleText);
         mYearText = findViewById(R.id.yearText);
         mPlotText = findViewById(R.id.plotText);
+        mPosterView = findViewById(R.id.posterView);
+        mRatingText = findViewById(R.id.ratingText);
+        mGenreText = findViewById(R.id.genreText);
+        mMetascoreText = findViewById(R.id.metascoreText);
+        mImdbRatingText = findViewById(R.id.imdbRatingText);
+        mProductionText = findViewById(R.id.productionText);
+        mWriterText = findViewById(R.id.writerText);
+        mActorsText = findViewById(R.id.actorsText);
+        mRuntimeText = findViewById(R.id.runtimeText);
+        mReleasedText = findViewById(R.id.releasedText);
     }
 
     @Override
@@ -55,99 +64,19 @@ public class DetailsActivity extends AppCompatActivity {
 
     public void displayDetails() {
         mDetails = mMovieDb.getMovieDetails(mMovie);
-        mTitleText.setText(mDetails.getName());
+        mTitleText.setText(mDetails.getTitle());
         mYearText.setText(mDetails.getYear());
         mPlotText.setText(mDetails.getPlot());
+        mPosterView.setImageURI(Uri.parse(mDetails.getPoster()));
+        mRatingText.setText(mDetails.getRating());
+        mGenreText.setText(mDetails.getGenre());
+        mMetascoreText.setText(mDetails.getMetascore());
+        mImdbRatingText.setText(mDetails.getImdbRating());
+        mProductionText.setText(mDetails.getProduction());
+        mWriterText.setText(mDetails.getWriter());
+        mActorsText.setText(mDetails.getActors());
+        mRuntimeText.setText(mDetails.getRuntime());
+        mReleasedText.setText(mDetails.getReleased());
+
     }
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//
-//        // Inflate menu for the app bar
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.question_menu, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//
-//        // Determine which app bar item was chosen
-//        switch (item.getItemId()) {
-//            case R.id.previous:
-//                showQuestion(mCurrentQuestionIndex - 1);
-//                return true;
-//            case R.id.next:
-//                showQuestion(mCurrentQuestionIndex + 1);
-//                return true;
-//            case R.id.add:
-//                addQuestion();
-//                return true;
-//            case R.id.edit:
-//                editQuestion();
-//                return true;
-//            case R.id.delete:
-//                deleteQuestion();
-//                return true;
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
-
-
-//    private void displayQuestion(boolean display) {
-//
-//        // Show or hide the appropriate screen
-//        if (display) {
-//            mShowQuestionsLayout.setVisibility(View.VISIBLE);
-//            mNoQuestionsLayout.setVisibility(View.GONE);
-//        } else {
-//            mShowQuestionsLayout.setVisibility(View.GONE);
-//            mNoQuestionsLayout.setVisibility(View.VISIBLE);
-//        }
-//    }
-
-//    private void updateAppBarTitle() {
-//
-//        // Display subject and number of questions in app bar
-//        ActionBar actionBar = getSupportActionBar();
-//        if (actionBar != null) {
-//            String title = getResources().getString(R.string.question_number,
-//                    mMovie, mCurrentQuestionIndex + 1, mQuestionList.size());
-//            setTitle(title);
-//        }
-//    }
-
-//    private void showQuestion(int questionIndex) {
-//
-//        // Show question at the given index
-//        if (mQuestionList.size() > 0) {
-//            if (questionIndex < 0) {
-//                questionIndex = mQuestionList.size() - 1;
-//            } else if (questionIndex >= mQuestionList.size()) {
-//                questionIndex = 0;
-//            }
-//
-//            mCurrentQuestionIndex = questionIndex;
-//            updateAppBarTitle();
-//
-
-//        }
-//        else {
-//            // No questions yet
-//            mCurrentQuestionIndex = -1;
-//        }
-//    }
-
-//    private void toggleAnswerVisibility() {
-//        if (mAnswerText.getVisibility() == View.VISIBLE) {
-//            mAnswerButton.setText(R.string.show_answer);
-//            mAnswerText.setVisibility(View.INVISIBLE);
-//            mAnswerLabel.setVisibility(View.INVISIBLE);
-//        }
-//        else {
-//            mAnswerButton.setText(R.string.hide_answer);
-//            mAnswerText.setVisibility(View.VISIBLE);
-//            mAnswerLabel.setVisibility(View.VISIBLE);
-//        }
-//    }
 }
