@@ -28,4 +28,13 @@
     <string name="plot_label">Plot:</string>
     <string name="title_year_label">Title Year:</string>
     <string name="year_label">Year:</string>
+    <string name="rating_label">Rating:</string>
+    <string name="genre_label">Genre:</string>
+    <string name="metascore_label">Metascore:</string>
+    <string name="imdb_label">IMDB Rating:</string>
+    <string name="production_label">Movie studio:</string>
+    <string name="writer_label">Writer:</string>
+    <string name="actors_label">Actors:</string>
+    <string name="runtime_label">Runtime:</string>
+    <string name="released_label">Released:</string>
 </resources>

@@ -178,7 +178,27 @@ public class MainActivity extends AppCompatActivity {
 
                             String plot = response.getString("Plot");
 
-                            Movie movie = new Movie(title, year, plot);
+                            String poster = response.getString("Poster");
+
+                            String rating = response.getString("Rated");
+
+                            String genre = response.getString("Genre");
+
+                            String metascore = response.getString("Metascore");
+
+                            String imdbRating = response.getString("imdbRating");
+
+                            String production = response.getString("Production");
+
+                            String writer = response.getString("Writer");
+
+                            String actors = response.getString("Actors");
+
+                            String runtime = response.getString("Runtime");
+
+                            String released = response.getString("Released");
+
+                            Movie movie = new Movie(title, year, plot, poster, rating, genre, metascore, imdbRating, production, writer, actors, runtime, released);
 
                             if (mMovieDb.addMovie(movie)) {
                                 mMovieAdapter.addMovie(movie);
@@ -240,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
 
         public void bind(Movie movie, int position) {
             mMovie = movie;
-            mTextView.setText(movie.getName());
+            mTextView.setText(movie.getTitle());
 
             if (mSelectedMoviePosition == position) {
                 mTextView.setBackgroundColor(Color.RED);
@@ -269,7 +289,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
-            intent.putExtra(DetailsActivity.MOVIE_DETAILS, mMovie.getName());
+            intent.putExtra(DetailsActivity.MOVIE_DETAILS, mMovie.getTitle());
             startActivity(intent);
         }
     }
