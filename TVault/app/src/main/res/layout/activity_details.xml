@@ -16,13 +16,14 @@
 
         <ImageView
             android:id="@+id/posterView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
         <TextView
             android:id="@+id/titleLabel"
+            android:layout_marginLeft="115dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_label"
@@ -33,7 +34,7 @@
             android:id="@+id/titleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/titleLabel"
             app:layout_constraintLeft_toRightOf="@id/titleLabel"/>
 
@@ -44,32 +45,15 @@
             android:text="@string/year_label"
             android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@id/titleText"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="@id/titleLabel"/>
 
         <TextView
             android:id="@+id/yearText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/yearLabel"
             app:layout_constraintLeft_toRightOf="@id/yearLabel"/>
-
-        <TextView
-            android:id="@+id/plotLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/plot_label"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/yearText"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-
-        <TextView
-            android:id="@+id/plotText"
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            app:layout_constraintTop_toTopOf="@id/plotLabel"
-            app:layout_constraintLeft_toRightOf="@id/plotLabel"/>
 
         <TextView
             android:id="@+id/ratingLabel"
@@ -77,14 +61,14 @@
             android:layout_height="wrap_content"
             android:text="@string/rating_label"
             android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/plotText"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/yearText"
+            app:layout_constraintLeft_toLeftOf="@id/yearLabel"/>
 
         <TextView
             android:id="@+id/ratingText"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/ratingLabel"
             app:layout_constraintLeft_toRightOf="@id/ratingLabel"/>
 
@@ -95,15 +79,32 @@
             android:text="@string/genre_label"
             android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@id/ratingLabel"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="@id/ratingLabel"/>
 
         <TextView
             android:id="@+id/genreText"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/genreLabel"
             app:layout_constraintLeft_toRightOf="@id/genreLabel"/>
+
+        <TextView
+            android:id="@+id/plotLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/plot_label"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/genreText"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <TextView
+            android:id="@+id/plotText"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintTop_toTopOf="@id/plotLabel"
+            app:layout_constraintLeft_toRightOf="@id/plotLabel"/>
 
         <TextView
             android:id="@+id/metascoreLabel"
@@ -111,14 +112,14 @@
             android:layout_height="wrap_content"
             android:text="@string/metascore_label"
             android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/genreText"
+            app:layout_constraintTop_toBottomOf="@id/plotText"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
         <TextView
             android:id="@+id/metascoreText"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/metascoreLabel"
             app:layout_constraintLeft_toRightOf="@id/metascoreLabel"/>
 
@@ -135,7 +136,7 @@
             android:id="@+id/imdbRatingText"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/imdbRatingLabel"
             app:layout_constraintLeft_toRightOf="@id/imdbRatingLabel"/>
 
@@ -152,7 +153,7 @@
             android:id="@+id/productionText"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/productionLabel"
             app:layout_constraintLeft_toRightOf="@id/productionLabel"/>
 
@@ -169,7 +170,7 @@
             android:id="@+id/writerText"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/writerLabel"
             app:layout_constraintLeft_toRightOf="@id/writerLabel"/>
 
@@ -186,7 +187,7 @@
             android:id="@+id/actorsText"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/actorsLabel"
             app:layout_constraintLeft_toRightOf="@id/actorsLabel"/>
 
@@ -203,7 +204,7 @@
             android:id="@+id/runtimeText"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/runtimeLabel"
             app:layout_constraintLeft_toRightOf="@id/runtimeLabel"/>
 
@@ -220,7 +221,7 @@
             android:id="@+id/releasedText"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/releasedLabel"
             app:layout_constraintLeft_toRightOf="@id/releasedLabel"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

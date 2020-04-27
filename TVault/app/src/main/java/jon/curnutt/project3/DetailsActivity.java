@@ -1,12 +1,13 @@
 package jon.curnutt.project3;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.squareup.picasso.Picasso;
 
 
 public class DetailsActivity extends AppCompatActivity {
@@ -62,12 +63,19 @@ public class DetailsActivity extends AppCompatActivity {
         displayDetails();
     }
 
+    // Picasso resource: https://stackoverflow.com/questions/2471935/how-to-load-an-imageview-by-url-in-android
+    // "No Poster" image: https://www.auro-3d.com/wp-content/uploads/2016/08/no-poster-available.jpg
     public void displayDetails() {
         mDetails = mMovieDb.getMovieDetails(mMovie);
         mTitleText.setText(mDetails.getTitle());
         mYearText.setText(mDetails.getYear());
         mPlotText.setText(mDetails.getPlot());
-        mPosterView.setImageURI(Uri.parse(mDetails.getPoster()));
+
+        // If length is less than 4, it is "N/A"
+        if (mDetails.getPoster().length() > 4)
+            Picasso.get().load(mDetails.getPoster()).into(mPosterView);
+        else
+            mPosterView.setImageResource(R.drawable.no_poster_available);
         mRatingText.setText(mDetails.getRating());
         mGenreText.setText(mDetails.getGenre());
         mMetascoreText.setText(mDetails.getMetascore());
@@ -77,6 +85,5 @@ public class DetailsActivity extends AppCompatActivity {
         mActorsText.setText(mDetails.getActors());
         mRuntimeText.setText(mDetails.getRuntime());
         mReleasedText.setText(mDetails.getReleased());
-
     }
 }
