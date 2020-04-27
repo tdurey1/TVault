@@ -45,6 +45,7 @@ public class MovieDatabase extends SQLiteOpenHelper {
         private static final String COL_ACTORS = "actors";
         private static final String COL_RUNTIME = "runtime";
         private static final String COL_RELEASED = "released";
+        private static final String COL_UPDATE_TIME = "updated";
     }
 
     @Override
@@ -64,7 +65,8 @@ public class MovieDatabase extends SQLiteOpenHelper {
                 MovieTable.COL_WRITER + ", " +
                 MovieTable.COL_ACTORS + ", " +
                 MovieTable.COL_RUNTIME + ", " +
-                MovieTable.COL_RELEASED + ")");
+                MovieTable.COL_RELEASED + ", " +
+                MovieTable.COL_UPDATE_TIME + " int)");
 
         // Add an example movie
         Movie movie = new Movie(
@@ -99,6 +101,7 @@ public class MovieDatabase extends SQLiteOpenHelper {
         values.put(MovieTable.COL_ACTORS, movie.getActors());
         values.put(MovieTable.COL_RUNTIME, movie.getRuntime());
         values.put(MovieTable.COL_RELEASED, movie.getReleased());
+        values.put(MovieTable.COL_UPDATE_TIME, movie.getUpdateTime());
         db.insert(MovieTable.TABLE, null, values);
     }
 
@@ -129,14 +132,14 @@ public class MovieDatabase extends SQLiteOpenHelper {
 
         String orderBy;
         switch (order) {
-//            case ALPHABETIC:
-//                orderBy = MovieTable.COL_NAME + " collate nocase";
-//                break;
-//            case UPDATE_DESC:
-//                orderBy = MovieTable.COL_UPDATE_TIME + " desc";
-//                break;
-            default:
+            case ALPHABETIC:
                 orderBy = MovieTable.COL_NAME + " collate nocase";
+                break;
+            case UPDATE_DESC:
+                orderBy = MovieTable.COL_UPDATE_TIME + " desc";
+                break;
+            default:
+                orderBy = MovieTable.COL_UPDATE_TIME + " asc";
                 break;
         }
 
@@ -147,6 +150,7 @@ public class MovieDatabase extends SQLiteOpenHelper {
                 Movie movie = new Movie();
                 movie.setTitle(cursor.getString(0));
                 movie.setPoster(cursor.getString(3));
+                movie.setUpdateTime(cursor.getLong(13));
                 movies.add(movie);
             } while (cursor.moveToNext());
         }
@@ -171,6 +175,7 @@ public class MovieDatabase extends SQLiteOpenHelper {
         values.put(MovieTable.COL_ACTORS, movie.getActors());
         values.put(MovieTable.COL_RUNTIME, movie.getRuntime());
         values.put(MovieTable.COL_RELEASED, movie.getReleased());
+        values.put(MovieTable.COL_UPDATE_TIME, movie.getUpdateTime());
         long id = db.insert(MovieTable.TABLE, null, values);
         return id != -1;
     }

@@ -15,6 +15,7 @@ public class Movie {
     private String mMovieActors;
     private String mMovieRuntime;
     private String mMovieReleased;
+    private long mUpdateTime;
 
     public Movie() {}
 
@@ -33,6 +34,7 @@ public class Movie {
         mMovieActors = actors;
         mMovieRuntime = runtime;
         mMovieReleased = released;
+        mUpdateTime = System.currentTimeMillis();
     }
 
     public String getTitle() {
@@ -98,4 +100,12 @@ public class Movie {
     public String getReleased() {return mMovieReleased;}
 
     public void setReleased(String realeased) {mMovieReleased = realeased;}
+
+    public long getUpdateTime() {
+        return mUpdateTime;
+    }
+
+    public void setUpdateTime(long updateTime) {
+        mUpdateTime = updateTime;
+    }
 }
