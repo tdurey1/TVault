@@ -28,4 +28,21 @@
     <string name="plot_label">Plot:</string>
     <string name="title_year_label">Title Year:</string>
     <string name="year_label">Year:</string>
+    <string name="pref_title_theme">Dark Theme</string>
+    <string name="pref_description_theme">Turn on dark theme</string>
+    <string name="pref_title_item_order">Item Order</string>
+    <string name="pref_none">None</string>
+    <string name="settings">Settings</string>
+
+    <string-array name="pref_item_order">
+        <item>Alphabetic</item>
+        <item>Most recent first</item>
+        <item>Oldest first</item>
+    </string-array>
+
+    <string-array name="pref_item_order_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>

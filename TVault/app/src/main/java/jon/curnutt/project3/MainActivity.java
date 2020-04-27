@@ -3,8 +3,6 @@ package jon.curnutt.project3;
 
 //api call for specific episode https://www.omdbapi.com/?apikey=b5f9b213&t=[insert title]&season=[insert season]&episode=[insert episode]
 
-//********PROBABLY SHOULDN'T ALLOW THE USER TO SPECIFY EPISODES BECAUSE IT GETS VERY COMPLICATED********\\
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +11,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
@@ -40,29 +39,35 @@ import org.json.JSONObject;
 import java.util.List;
 
 import static jon.curnutt.project3.MovieDatabase.MovieSortOrder.ALPHABETIC;
+import static jon.curnutt.project3.MovieDatabase.MovieSortOrder.UPDATE_ASC;
+import static jon.curnutt.project3.MovieDatabase.MovieSortOrder.UPDATE_DESC;
+import static jon.curnutt.project3.SettingsFragment.PREFERENCE_ITEM_ORDER;
 
 public class MainActivity extends AppCompatActivity {
 
     private final String TAG = "Movie/Show";
-    //private TextView mMovieTitleTextView;
-    //private TextView mMoviePlotTextView;
     private String KEY = "b5f9b213";
     private RecyclerView mRecyclerView;
     private Movie mSelectedMovie;
     private MovieAdapter mMovieAdapter;
     private int mSelectedMoviePosition = RecyclerView.NO_POSITION;
-    //private boolean mDarkTheme;
+    private boolean mDarkTheme;
     private SharedPreferences mSharedPrefs;
     private MovieDatabase mMovieDb;
     private ActionMode mActionMode = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        mDarkTheme = mSharedPrefs.getBoolean(SettingsFragment.PREFERENCE_THEME, false);
+        if (mDarkTheme) {
+            setTheme(R.style.DarkTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
-
-//        mMovieTitleTextView = findViewById(R.id.MovieTitleTextView);
-//        mMoviePlotTextView = findViewById(R.id.MoviePlotTextView);
 
         mMovieDb = MovieDatabase.getInstance(getApplicationContext());
 
@@ -88,11 +93,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        // If theme changed, recreate the activity so theme is applied
-//        boolean darkTheme = mSharedPrefs.getBoolean(SettingsFragment.PREFERENCE_THEME, false);
-//        if (darkTheme != mDarkTheme) {
-//            recreate();
-//        }
+        boolean darkTheme = mSharedPrefs.getBoolean(SettingsFragment.PREFERENCE_THEME, false);
+        if (darkTheme != mDarkTheme) {
+            recreate();
+        }
 
         // Load subjects here in case settings changed
         mMovieAdapter = new MovieAdapter(loadMovies());
@@ -109,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.action_settings:
                 // Go to settings
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(intent);
                 return true;
 
             case R.id.action_about:
@@ -188,10 +194,6 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                             }
 
-                            //mMovieTitleTextView.setText(titleYear);
-                            //mMoviePlotTextView.setText(plot);
-                            //mMovieTitleTextView.setTextColor(getResources().getColor(R.color.black));
-
                         } catch (JSONException e) {
                             //display error if movie cannot be found
                             e.printStackTrace();
@@ -203,9 +205,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.d(TAG, "Error: " + error.toString());
-                        //mMovieTitleTextView.setText(getString(R.string.api_error));
-                        //mMovieTitleTextView.setTextColor(getResources().getColor(R.color.red));
-                        //mMoviePlotTextView.setText("");
                     }
                 });
 
@@ -219,8 +218,6 @@ public class MainActivity extends AppCompatActivity {
 
         if(input.length() == 0) {
             Toast.makeText(this, getString(R.string.empty_input_toast), Toast.LENGTH_SHORT).show();
-            //mMoviePlotTextView.setText("");
-            // mMovieTitleTextView.setText("");
         }
         else getDetails(input);
     }
@@ -358,14 +355,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Sorta broke for now so just use alphabetical list
     private List<Movie> loadMovies() {
-//        String order = mSharedPrefs.getString(PREFERENCE_SUBJECT_ORDER, "1");
-//        switch (Integer.parseInt(order)) {
-//            case 0: return mMovieDb.getMovies(ALPHABETIC);
-//            case 1: return mMovieDb.getMovies(UPDATE_DESC);
-//            default: return mMovieDb.getMovies(UPDATE_ASC);
-//        }
-        return mMovieDb.getMovies(ALPHABETIC);
+        String order = mSharedPrefs.getString(PREFERENCE_ITEM_ORDER, "0");
+        switch (Integer.parseInt(order)) {
+            case 0: return mMovieDb.getMovies(ALPHABETIC);
+            case 1: return mMovieDb.getMovies(UPDATE_DESC);
+            default: return mMovieDb.getMovies(UPDATE_ASC);
+        }
     }
 }

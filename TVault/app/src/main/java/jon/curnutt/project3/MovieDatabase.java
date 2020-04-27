@@ -17,7 +17,7 @@ public class MovieDatabase extends SQLiteOpenHelper {
 
     private static MovieDatabase mMovieDb;
 
-    public enum MovieSortOrder { ALPHABETIC, UPDATE_DESC, UPDATE_ASC };
+    public enum MovieSortOrder { ALPHABETIC, UPDATE_DESC, UPDATE_ASC }
 
     public static MovieDatabase getInstance(Context context) {
         if (mMovieDb == null) {
