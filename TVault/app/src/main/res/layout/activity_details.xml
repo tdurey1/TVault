@@ -28,7 +28,8 @@
             android:layout_height="wrap_content"
             android:text="@string/title_label"
             app:layout_constraintTop_toTopOf="@id/posterView"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/titleText"
@@ -45,7 +46,8 @@
             android:text="@string/year_label"
             android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@id/titleText"
-            app:layout_constraintLeft_toLeftOf="@id/titleLabel"/>
+            app:layout_constraintLeft_toLeftOf="@id/titleLabel"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/yearText"
@@ -62,7 +64,8 @@
             android:text="@string/rating_label"
             android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@id/yearText"
-            app:layout_constraintLeft_toLeftOf="@id/yearLabel"/>
+            app:layout_constraintLeft_toLeftOf="@id/yearLabel"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/ratingText"
@@ -79,7 +82,8 @@
             android:text="@string/genre_label"
             android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@id/ratingLabel"
-            app:layout_constraintLeft_toLeftOf="@id/ratingLabel"/>
+            app:layout_constraintLeft_toLeftOf="@id/ratingLabel"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/genreText"
@@ -96,7 +100,8 @@
             android:text="@string/plot_label"
             android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@id/genreText"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/plotText"
@@ -113,7 +118,8 @@
             android:text="@string/metascore_label"
             android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@id/plotText"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/metascoreText"
@@ -130,7 +136,8 @@
             android:text="@string/imdb_label"
             android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@id/metascoreText"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/imdbRatingText"
@@ -147,7 +154,8 @@
             android:text="@string/production_label"
             android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@id/imdbRatingText"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/productionText"
@@ -164,7 +172,8 @@
             android:text="@string/writer_label"
             android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@id/productionText"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/writerText"
@@ -181,7 +190,8 @@
             android:text="@string/actors_label"
             android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@id/writerText"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/actorsText"
@@ -198,7 +208,8 @@
             android:text="@string/runtime_label"
             android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@id/actorsText"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/runtimeText"
@@ -215,7 +226,8 @@
             android:text="@string/released_label"
             android:layout_marginTop="20dp"
             app:layout_constraintTop_toBottomOf="@id/runtimeText"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/releasedText"
