@@ -22,7 +22,7 @@
     <string name="cancel">Cancel</string>
     <string name="empty_input_toast">Please enter a value.</string>
     <string name="movie_exists">"%1$s" is already in your vault.</string>
-    <string name="movie_not_found">We couldn\'t find the movie "%1$s"</string>
+    <string name="movie_not_found">We couldn\'t find the movie\\show "%1$s"</string>
     <string name="delete">Delete</string>
     <string name="title_label">Title:</string>
     <string name="plot_label">Plot:</string>
