@@ -222,7 +222,11 @@ public class MainActivity extends AppCompatActivity {
 
                             String imdbRating = response.getString("imdbRating");
 
-                            String production = response.getString("Production");
+                            String production;
+                            if (response.getString("Type").equals("series"))
+                                production = response.getString("totalSeasons");
+                            else
+                                production = response.getString("Production");
 
                             String writer = response.getString("Writer");
 

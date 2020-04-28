@@ -27,6 +27,7 @@ public class DetailsActivity extends AppCompatActivity {
     private TextView mMetascoreText;
     private TextView mImdbRatingText;
     private TextView mProductionText;
+    private TextView mProductionLabel;
     private TextView mWriterText;
     private TextView mActorsText;
     private TextView mRuntimeText;
@@ -73,6 +74,7 @@ public class DetailsActivity extends AppCompatActivity {
         mMetascoreText = findViewById(R.id.metascoreText);
         mImdbRatingText = findViewById(R.id.imdbRatingText);
         mProductionText = findViewById(R.id.productionText);
+        mProductionLabel = findViewById(R.id.productionLabel);
         mWriterText = findViewById(R.id.writerText);
         mActorsText = findViewById(R.id.actorsText);
         mRuntimeText = findViewById(R.id.runtimeText);
@@ -108,5 +110,8 @@ public class DetailsActivity extends AppCompatActivity {
         mActorsText.setText(mDetails.getActors());
         mRuntimeText.setText(mDetails.getRuntime());
         mReleasedText.setText(mDetails.getReleased());
+
+        if (mDetails.getRating().contains("TV-"))
+            mProductionLabel.setText(R.string.total_seasons);
     }
 }

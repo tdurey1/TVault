@@ -46,6 +46,7 @@
     <string name="settings">Settings</string>
     <string name="details_label">Details</string>
     <string name="delete_item_toast">Tap the icon the right-hand corner to remove the selected item</string>
+    <string name="total_seasons">Total Seasons: </string>
 
     <string-array name="pref_item_order">
         <item>Alphabetic</item>
