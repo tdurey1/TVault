@@ -303,7 +303,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public boolean onLongClick(View view) {
-            Toast.makeText(getApplicationContext(), "howdy", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.delete_item_toast),
+                    Toast.LENGTH_LONG).show();
             if (mActionMode != null) {
                 return false;
             }
