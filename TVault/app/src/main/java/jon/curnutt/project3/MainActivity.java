@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 new GridLayoutManager(getApplicationContext(), 2);
         mRecyclerView.setLayoutManager(gridLayoutManager);
 
-        // Shows the available subject
+        // Shows the available movie
         mMovieAdapter = new MovieAdapter(loadMovies());
         mRecyclerView.setAdapter(mMovieAdapter);
     }
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        // Load subjects here in case settings changed
+        // Load movies here in case settings changed
         mMovieAdapter = new MovieAdapter(loadMovies());
         mRecyclerView.setAdapter(mMovieAdapter);
     }
@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
         //this api call only works for movies and generic TV shows (not specific episodes yet)
         String url = "https://www.omdbapi.com/?apikey=" + KEY + "&t=" + input;
 
-        // Create a new JsonObjectRequest that requests available subjects
+        // Create a new JsonObjectRequest that requests available movies
         JsonObjectRequest requestObj = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
                     @Override

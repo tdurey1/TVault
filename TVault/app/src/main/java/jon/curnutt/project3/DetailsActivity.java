@@ -2,7 +2,6 @@ package jon.curnutt.project3;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.widget.ImageView;
@@ -58,11 +57,9 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
-        // Hosting activity provides the subject of the questions to display
         Intent intent = getIntent();
         mMovie = intent.getStringExtra(MOVIE_DETAILS);
 
-        // Load all questions for this subject
         mMovieDb = MovieDatabase.getInstance(getApplicationContext());
 
         mTitleText = findViewById(R.id.titleText);

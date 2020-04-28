@@ -10,7 +10,7 @@ public class SettingsFragment extends PreferenceFragment
         implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     public static String PREFERENCE_THEME = "pref_theme";
-    public static String PREFERENCE_ITEM_ORDER = "pref_subject_order";
+    public static String PREFERENCE_ITEM_ORDER = "pref_movie_order";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class SettingsFragment extends PreferenceFragment
         setPrefSummaryTheme(sharedPrefs);
     }
 
-    // Set the summary to the currently selected subject order
+    // Set the summary to the currently selected movie order
     private void setPrefSummaryItemOrder(SharedPreferences sharedPrefs) {
         String order = sharedPrefs.getString(PREFERENCE_ITEM_ORDER, "1");
         String[] itemOrders = getResources().getStringArray(R.array.pref_item_order);
@@ -35,7 +35,7 @@ public class SettingsFragment extends PreferenceFragment
         itemOrderPref.setSummary(itemOrders[Integer.parseInt(order)]);
     }
 
-    // Set the summary to the currently selected subject order
+    // Set the summary to the currently selected movie order
     private void setPrefSummaryTheme(SharedPreferences sharedPrefs) {
         String theme = sharedPrefs.getString(PREFERENCE_THEME, "0");
         String[] themes = getResources().getStringArray(R.array.pref_theme);
