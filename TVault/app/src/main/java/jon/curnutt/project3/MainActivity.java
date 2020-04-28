@@ -64,17 +64,19 @@ public class MainActivity extends AppCompatActivity {
 
         mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         mTheme = mSharedPrefs.getString(SettingsFragment.PREFERENCE_THEME, "0");
-        if (mTheme == "0") {
-            setTheme(R.style.AppTheme);
-        }
-        else if(mTheme == "1") {
-            setTheme(R.style.DarkTheme);
-        }
-        else if(mTheme == "2") {
-            setTheme(R.style.RedTheme);
-        }
-        else if(mTheme == "3") {
-            setTheme(R.style.BlueTheme);
+        switch (mTheme) {
+            case "0":
+                setTheme(R.style.AppTheme);
+                break;
+            case "1":
+                setTheme(R.style.DarkTheme);
+                break;
+            case "2":
+                setTheme(R.style.RedTheme);
+                break;
+            case "3":
+                setTheme(R.style.BlueTheme);
+                break;
         }
 
         super.onCreate(savedInstanceState);
@@ -104,23 +106,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        String theme = mSharedPrefs.getString(SettingsFragment.PREFERENCE_THEME, "0");
-        if (theme == "0") {
-            setTheme(R.style.AppTheme);
-            recreate();
-        }
-        else if(theme == "1") {
-            setTheme(R.style.DarkTheme);
-            recreate();
-        }
-        else if(theme == "2") {
-            setTheme(R.style.RedTheme);
-            recreate();
-        }
-        else if(theme == "3") {
-            setTheme(R.style.BlueTheme);
-            recreate();
-        }
+//        String theme = mSharedPrefs.getString(SettingsFragment.PREFERENCE_THEME, "0");
+//        switch (theme) {
+//            case "0":
+//                setTheme(R.style.AppTheme);
+//                recreate();
+//                break;
+//            case "1":
+//                setTheme(R.style.DarkTheme);
+//                recreate();
+//                break;
+//            case "2":
+//                setTheme(R.style.RedTheme);
+//                recreate();
+//                break;
+//            case "3":
+//                setTheme(R.style.BlueTheme);
+//                recreate();
+//                break;
+//        }
 
         // Load subjects here in case settings changed
         mMovieAdapter = new MovieAdapter(loadMovies());

@@ -39,17 +39,19 @@ public class DetailsActivity extends AppCompatActivity {
 
         mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         mTheme = mSharedPrefs.getString(SettingsFragment.PREFERENCE_THEME, "0");
-        if (mTheme == "0") {
-            setTheme(R.style.AppTheme);
-        }
-        else if(mTheme == "1") {
-            setTheme(R.style.DarkTheme);
-        }
-        else if(mTheme == "2") {
-            setTheme(R.style.RedTheme);
-        }
-        else if(mTheme == "3") {
-            setTheme(R.style.BlueTheme);
+        switch (mTheme) {
+            case "0":
+                setTheme(R.style.AppTheme);
+                break;
+            case "1":
+                setTheme(R.style.DarkTheme);
+                break;
+            case "2":
+                setTheme(R.style.RedTheme);
+                break;
+            case "3":
+                setTheme(R.style.BlueTheme);
+                break;
         }
 
         super.onCreate(savedInstanceState);

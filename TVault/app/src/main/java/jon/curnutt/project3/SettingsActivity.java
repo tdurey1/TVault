@@ -13,17 +13,19 @@ public class SettingsActivity extends AppCompatActivity {
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
         String theme = sharedPrefs.getString(SettingsFragment.PREFERENCE_THEME, "0");
-        if (theme == "0") {
-            setTheme(R.style.AppTheme);
-        }
-        else if(theme == "1") {
-            setTheme(R.style.DarkTheme);
-        }
-        else if(theme == "2") {
-            setTheme(R.style.RedTheme);
-        }
-        else if(theme == "3") {
-            setTheme(R.style.BlueTheme);
+        switch (theme) {
+            case "0":
+                setTheme(R.style.AppTheme);
+                break;
+            case "1":
+                setTheme(R.style.DarkTheme);
+                break;
+            case "2":
+                setTheme(R.style.RedTheme);
+                break;
+            case "3":
+                setTheme(R.style.BlueTheme);
+                break;
         }
 
         super.onCreate(savedInstanceState);
