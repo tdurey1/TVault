@@ -106,26 +106,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-//        String theme = mSharedPrefs.getString(SettingsFragment.PREFERENCE_THEME, "0");
-//        switch (theme) {
-//            case "0":
-//                setTheme(R.style.AppTheme);
-//                recreate();
-//                break;
-//            case "1":
-//                setTheme(R.style.DarkTheme);
-//                recreate();
-//                break;
-//            case "2":
-//                setTheme(R.style.RedTheme);
-//                recreate();
-//                break;
-//            case "3":
-//                setTheme(R.style.BlueTheme);
-//                recreate();
-//                break;
-//        }
-
         // Load subjects here in case settings changed
         mMovieAdapter = new MovieAdapter(loadMovies());
         mRecyclerView.setAdapter(mMovieAdapter);
