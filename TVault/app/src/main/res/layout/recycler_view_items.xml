@@ -16,15 +16,15 @@
 
         <ImageView
             android:id="@+id/posterView"
-            android:layout_width="100dp"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"/>
 
         <TextView
             android:id="@+id/movieTextView"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             android:padding="10dp"
             android:layout_gravity="center"
