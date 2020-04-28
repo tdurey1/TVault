@@ -32,7 +32,7 @@
 
         <TextView
             android:id="@+id/titleText"
-            android:layout_width="wrap_content"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/titleLabel"
@@ -49,7 +49,7 @@
 
         <TextView
             android:id="@+id/yearText"
-            android:layout_width="wrap_content"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/yearLabel"
@@ -66,7 +66,7 @@
 
         <TextView
             android:id="@+id/ratingText"
-            android:layout_width="350dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/ratingLabel"
@@ -83,7 +83,7 @@
 
         <TextView
             android:id="@+id/genreText"
-            android:layout_width="350dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/genreLabel"
@@ -100,7 +100,7 @@
 
         <TextView
             android:id="@+id/plotText"
-            android:layout_width="350dp"
+            android:layout_width="347dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/plotLabel"
@@ -117,7 +117,7 @@
 
         <TextView
             android:id="@+id/metascoreText"
-            android:layout_width="350dp"
+            android:layout_width="347dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/metascoreLabel"
@@ -134,7 +134,7 @@
 
         <TextView
             android:id="@+id/imdbRatingText"
-            android:layout_width="350dp"
+            android:layout_width="347dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/imdbRatingLabel"
@@ -151,7 +151,7 @@
 
         <TextView
             android:id="@+id/productionText"
-            android:layout_width="350dp"
+            android:layout_width="347dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/productionLabel"
@@ -168,7 +168,7 @@
 
         <TextView
             android:id="@+id/writerText"
-            android:layout_width="350dp"
+            android:layout_width="347dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/writerLabel"
@@ -185,7 +185,7 @@
 
         <TextView
             android:id="@+id/actorsText"
-            android:layout_width="350dp"
+            android:layout_width="347dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/actorsLabel"
@@ -202,7 +202,7 @@
 
         <TextView
             android:id="@+id/runtimeText"
-            android:layout_width="350dp"
+            android:layout_width="347dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/runtimeLabel"
@@ -219,7 +219,7 @@
 
         <TextView
             android:id="@+id/releasedText"
-            android:layout_width="350dp"
+            android:layout_width="347dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             app:layout_constraintTop_toTopOf="@id/releasedLabel"
