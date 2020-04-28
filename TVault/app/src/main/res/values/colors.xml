@@ -3,12 +3,30 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
     <color name="red">#fc1c03</color>
     <color name="black">#000</color>
 
     <color name="colorBackgroundDark">#000</color>
     <color name="colorAppBar">#023</color>
-    <color name="colorText">#BBB</color>
+
+    <color name="colorTextLightGrey">#BBB</color>
+    <color name="colorTextWhite">#FFF</color>
     <color name="colorTextSecondary">#999</color>
     <color name="colorButton">#555</color>
+
+    <color name="colorBackgroundRed">#BD4545</color>
+    <color name="colorAppBarRed">#982828</color>
+    <color name="colorPrimaryRed">#810909</color>
+    <color name="colorAccentRed">#CE8585</color>
+    <color name="textColorRed">#FFABAB</color>
+
+    <color name="colorBackgroundBlue">#6572E4</color>
+    <color name="colorAppBarBlue">#4C5BE4</color>
+    <color name="colorPrimaryBlue">#2C3CC7</color>
+    <color name="colorAccentBlue">#787DAB</color>
+    <color name="textColorBlue">#D4CAE4</color>
+
+
+
 </resources>

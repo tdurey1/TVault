@@ -24,14 +24,23 @@ public class SettingsFragment extends PreferenceFragment
                 PreferenceManager.getDefaultSharedPreferences(getActivity());
 
         setPrefSummaryItemOrder(sharedPrefs);
+        setPrefSummaryTheme(sharedPrefs);
     }
 
     // Set the summary to the currently selected subject order
     private void setPrefSummaryItemOrder(SharedPreferences sharedPrefs) {
         String order = sharedPrefs.getString(PREFERENCE_ITEM_ORDER, "1");
-        String[] subjectOrders = getResources().getStringArray(R.array.pref_item_order);
-        Preference subjectOrderPref = findPreference(PREFERENCE_ITEM_ORDER);
-        subjectOrderPref.setSummary(subjectOrders[Integer.parseInt(order)]);
+        String[] itemOrders = getResources().getStringArray(R.array.pref_item_order);
+        Preference itemOrderPref = findPreference(PREFERENCE_ITEM_ORDER);
+        itemOrderPref.setSummary(itemOrders[Integer.parseInt(order)]);
+    }
+
+    // Set the summary to the currently selected subject order
+    private void setPrefSummaryTheme(SharedPreferences sharedPrefs) {
+        String theme = sharedPrefs.getString(PREFERENCE_THEME, "0");
+        String[] themes = getResources().getStringArray(R.array.pref_theme);
+        Preference themePref = findPreference(PREFERENCE_THEME);
+        themePref.setSummary(themes[Integer.parseInt(theme)]);
     }
 
     @Override
@@ -50,6 +59,7 @@ public class SettingsFragment extends PreferenceFragment
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         if (key.equals(PREFERENCE_THEME)) {
             // Recreate the activity so the theme takes effect
+            setPrefSummaryTheme(sharedPreferences);
             getActivity().recreate();
         }
         else if (key.equals(PREFERENCE_ITEM_ORDER)) {

@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     private Movie mSelectedMovie;
     private MovieAdapter mMovieAdapter;
     private int mSelectedMoviePosition = RecyclerView.NO_POSITION;
-    private boolean mDarkTheme;
+    private String mTheme;
     private SharedPreferences mSharedPrefs;
     private MovieDatabase mMovieDb;
     private ActionMode mActionMode = null;
@@ -62,11 +62,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
         mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        mDarkTheme = mSharedPrefs.getBoolean(SettingsFragment.PREFERENCE_THEME, false);
-        if (mDarkTheme) {
+        mTheme = mSharedPrefs.getString(SettingsFragment.PREFERENCE_THEME, "0");
+        if (mTheme == "0") {
+            setTheme(R.style.AppTheme);
+        }
+        else if(mTheme == "1") {
             setTheme(R.style.DarkTheme);
+        }
+        else if(mTheme == "2") {
+            setTheme(R.style.RedTheme);
+        }
+        else if(mTheme == "3") {
+            setTheme(R.style.BlueTheme);
         }
 
         super.onCreate(savedInstanceState);
@@ -96,8 +104,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        boolean darkTheme = mSharedPrefs.getBoolean(SettingsFragment.PREFERENCE_THEME, false);
-        if (darkTheme != mDarkTheme) {
+        String theme = mSharedPrefs.getString(SettingsFragment.PREFERENCE_THEME, "0");
+        if (theme == "0") {
+            setTheme(R.style.AppTheme);
+            recreate();
+        }
+        else if(theme == "1") {
+            setTheme(R.style.DarkTheme);
+            recreate();
+        }
+        else if(theme == "2") {
+            setTheme(R.style.RedTheme);
+            recreate();
+        }
+        else if(theme == "3") {
+            setTheme(R.style.BlueTheme);
             recreate();
         }
 

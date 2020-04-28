@@ -12,10 +12,20 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean darkTheme = sharedPrefs.getBoolean(SettingsFragment.PREFERENCE_THEME, false);
-        if (darkTheme) {
+        String theme = sharedPrefs.getString(SettingsFragment.PREFERENCE_THEME, "0");
+        if (theme == "0") {
+            setTheme(R.style.AppTheme);
+        }
+        else if(theme == "1") {
             setTheme(R.style.DarkTheme);
         }
+        else if(theme == "2") {
+            setTheme(R.style.RedTheme);
+        }
+        else if(theme == "3") {
+            setTheme(R.style.BlueTheme);
+        }
+
         super.onCreate(savedInstanceState);
 
         // Display the fragment as the main content

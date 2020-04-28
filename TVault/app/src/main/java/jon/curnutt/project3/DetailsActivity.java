@@ -31,16 +31,25 @@ public class DetailsActivity extends AppCompatActivity {
     private TextView mActorsText;
     private TextView mRuntimeText;
     private TextView mReleasedText;
-    private boolean mDarkTheme;
+    private String mTheme;
     private SharedPreferences mSharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        mDarkTheme = mSharedPrefs.getBoolean(SettingsFragment.PREFERENCE_THEME, false);
-        if (mDarkTheme) {
+        mTheme = mSharedPrefs.getString(SettingsFragment.PREFERENCE_THEME, "0");
+        if (mTheme == "0") {
+            setTheme(R.style.AppTheme);
+        }
+        else if(mTheme == "1") {
             setTheme(R.style.DarkTheme);
+        }
+        else if(mTheme == "2") {
+            setTheme(R.style.RedTheme);
+        }
+        else if(mTheme == "3") {
+            setTheme(R.style.BlueTheme);
         }
 
         super.onCreate(savedInstanceState);
