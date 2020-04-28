@@ -16,7 +16,7 @@
         <item name="android:colorBackground">@color/colorBackgroundDark</item>
         <item name="android:textColor">@color/colorTextLightGrey</item>
         <item name="android:textColorSecondary">@color/colorTextSecondary</item>
-        <item name="android:editTextColor">@color/colorTextLightGrey</item>
+        <item name="android:editTextColor">@color/black</item>
         <item name="colorButtonNormal">@color/colorButton</item>
     </style>
 
@@ -27,7 +27,7 @@
         <item name="android:colorBackground">@color/colorBackgroundRed</item>
         <item name="android:textColor">@color/textColorRed</item>
         <item name="android:textColorSecondary">@color/colorTextWhite</item>
-        <item name="android:editTextColor">@color/textColorRed</item>
+        <item name="android:editTextColor">@color/colorPrimaryRed</item>
         <item name="colorButtonNormal">@color/colorAccentRed</item>
     </style>
 
@@ -38,7 +38,7 @@
         <item name="android:colorBackground">@color/colorBackgroundBlue</item>
         <item name="android:textColor">@color/textColorBlue</item>
         <item name="android:textColorSecondary">@color/colorTextWhite</item>
-        <item name="android:editTextColor">@color/textColorBlue</item>
+        <item name="android:editTextColor">@color/colorPrimaryBlue</item>
         <item name="colorButtonNormal">@color/colorAccentBlue</item>
     </style>
 
