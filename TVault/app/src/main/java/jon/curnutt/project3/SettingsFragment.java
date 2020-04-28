@@ -10,7 +10,7 @@ public class SettingsFragment extends PreferenceFragment
         implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     public static String PREFERENCE_THEME = "pref_theme";
-    public static String PREFERENCE_ITEM_ORDER = "pref_movie_order";
+    public static String PREFERENCE_ITEM_ORDER = "pref_subject_order";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
