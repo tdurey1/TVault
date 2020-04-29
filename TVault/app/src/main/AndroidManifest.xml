@@ -13,11 +13,14 @@
         android:theme="@style/AppTheme">
         <activity android:name=".SettingsActivity"
             android:label="@string/settings"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".DetailsActivity"
+            android:screenOrientation="portrait"
             android:label="@string/details_label"
             android:parentActivityName=".MainActivity"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
